@@ -1,0 +1,40 @@
+/* 
+Editor
+https://codesandbox.io/s/react-simple-editor-linenumbers-wy240?from-embed=&file=/src/styles.css
+*/
+.editor {
+    counter-reset: line;
+    margin-top: -20px;
+}
+
+.editor #codeArea {
+    outline: none;
+    padding-left: 60px !important;
+}
+
+.editor pre {
+    padding-left: 60px !important;
+}
+
+.editor .editorLineNumber {
+    position: absolute;
+    left: 0px;
+    color: #000000;
+    text-align: right;
+    width: 40px;
+    font-weight: 100;
+}
+
+/* 
+Title input
+https://www.codegrepper.com/code-examples/whatever/bootstrap+5+input+remove+border+on+focus
+*/
+.title-input:focus{
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+}
+
+.text-small{
+    font-size: 0.8em;
+}

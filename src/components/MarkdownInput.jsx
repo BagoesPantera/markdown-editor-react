@@ -14,12 +14,26 @@ export default function MarkdownInput(){
         .split("\n")
         .map((line, i) => `<span class='editorLineNumber'>${i + 1}</span>${line}`)
         .join("\n");
+
+    const handleClear = () => {
+        setCode("");
+    }
     
     return(
         <div className="w-50 border-end text-break pe-2">
+            <div className="d-flex w-100 m-0">
+                <div className="w-50">
+                    <p className="mt-3 text-muted text-small font-monospace fw-bold">MARKDOWN</p>
+                    
+                </div>
+                <div className="float-end w-50 my-auto">
+                    <button type="button" class="btn btn-outline-danger btn-rounded btn-sm float-end" data-mdb-ripple-color="dark" onClick={()=>{handleClear()}}><i class="bi bi-trash"></i> </button>
+                </div>
+                
+            </div>
             
-            <p className="mt-3 text-muted text-small font-monospace fw-bold">MARKDOWN</p>
-            <hr />
+            <hr className="my-0"/>
+            <div className="w-100 overflow-auto " style={{height:"91%"}}>
                 <Editor
                     value={code}
                     onValueChange={code => setCode(code)}
@@ -33,6 +47,8 @@ export default function MarkdownInput(){
                         outline: 0
                     }}
                 />
+            </div>
+                
         </div>
     );
 }

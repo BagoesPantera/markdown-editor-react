@@ -29,7 +29,7 @@ export default function NewHome(){
     return(
         <codeContext.Provider value={contextValue}>
             <Navbar></Navbar>
-            <div className="container-fluid mh-100 mt-2" style={{height:'80vh'}}>
+            <div className="container-fluid mh-100 mt-2" style={{height:'82vh'}}>
                 <Title></Title>
                 <div className="h-100 border-top d-flex mt-2">
                     <MarkdownInput></MarkdownInput>

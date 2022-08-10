@@ -19,30 +19,33 @@ export default function MarkdownOutput(){
     return(
         <div className="w-50 text-break ps-2">
             <p className="mt-3 text-muted text-small font-monospace fw-bold">PREVIEW</p>
-            <hr />
-            <ReactMarkdown 
-                children={code} 
-                remarkPlugins={[remarkGfm, remarkGemoji]}
-                rehypePlugins={[rehypeRaw]}
-                components={{
-                    code({node, inline, className, children, ...props}) {
-                        const match = /language-(\w+)/.exec(className || '')
-                        return !inline && match ? (
-                            <SyntaxHighlighter
-                                children={String(children).replace(/\n$/, '')}
-                                style={dracula}
-                                language={match[1]}
-                                PreTag="div"
-                                {...props}
-                            />
-                        ) : (
-                        <code className={className} {...props}>
-                          {children}
-                        </code>
-                      )
-                    }
-                }}
-            />
+            <hr className="mb-0"/>
+            <div className="w-100 overflow-auto " style={{height:"91%"}}>
+                <ReactMarkdown 
+                    children={code} 
+                    remarkPlugins={[remarkGfm, remarkGemoji]}
+                    rehypePlugins={[rehypeRaw]}
+                    components={{
+                        code({node, inline, className, children, ...props}) {
+                            const match = /language-(\w+)/.exec(className || '')
+                            return !inline && match ? (
+                                <SyntaxHighlighter
+                                    children={String(children).replace(/\n$/, '')}
+                                    style={dracula}
+                                    language={match[1]}
+                                    PreTag="div"
+                                    {...props}
+                                />
+                            ) : (
+                            <code className={className} {...props}>
+                            {children}
+                            </code>
+                        )
+                        }
+                    }}
+                />
+            </div>
+            
         </div>
     )
 }

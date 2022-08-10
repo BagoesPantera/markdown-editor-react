@@ -19,7 +19,6 @@ export default function MarkdownOutput(){
     return(
         <div className="w-50 text-break ps-2">
             <p className="mt-3 text-muted text-small font-monospace fw-bold">PREVIEW</p>
-            
             <hr />
             <ReactMarkdown 
                 children={code} 
@@ -27,16 +26,16 @@ export default function MarkdownOutput(){
                 rehypePlugins={[rehypeRaw]}
                 components={{
                     code({node, inline, className, children, ...props}) {
-                      const match = /language-(\w+)/.exec(className || '')
-                      return !inline && match ? (
-                        <SyntaxHighlighter
-                          children={String(children).replace(/\n$/, '')}
-                          style={dracula}
-                          language={match[1]}
-                          PreTag="div"
-                          {...props}
-                        />
-                      ) : (
+                        const match = /language-(\w+)/.exec(className || '')
+                        return !inline && match ? (
+                            <SyntaxHighlighter
+                                children={String(children).replace(/\n$/, '')}
+                                style={dracula}
+                                language={match[1]}
+                                PreTag="div"
+                                {...props}
+                            />
+                        ) : (
                         <code className={className} {...props}>
                           {children}
                         </code>

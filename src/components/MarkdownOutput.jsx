@@ -25,6 +25,7 @@ export default function MarkdownOutput(){
                     children={code} 
                     remarkPlugins={[remarkGfm, remarkGemoji]}
                     rehypePlugins={[rehypeRaw]}
+                    className="md-output"
                     components={{
                         code({node, inline, className, children, ...props}) {
                             const match = /language-(\w+)/.exec(className || '')
@@ -41,6 +42,20 @@ export default function MarkdownOutput(){
                             {children}
                             </code>
                         )
+                        },
+                        table({node, inline, className, children, ...props}) {
+                            return (
+                                <table className='table w-50' {...props}>
+                                    {children}
+                                </table>
+                            )
+                        },
+                        thead({node, inline, className, children, ...props}) {
+                            return (
+                                <thead className="table-dark">
+                                    {children}
+                                </thead>
+                            )
                         }
                     }}
                 />

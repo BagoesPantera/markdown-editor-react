@@ -9,8 +9,10 @@ import Title from "../../components/Title";
 import MarkdownInput from "../../components/MarkdownInput";
 import MarkdownOutput from "../../components/MarkdownOutput";
 
+import defaultInput from "../../const/defaultInput";
+
 export default function NewHome(){
-    const [code, setCode] = useState('## Type some code on the left');
+    const [code, setCode] = useState(defaultInput);
     const [wordCount, setWordCount] = useState(0);
     const [charCount, setCharCount] = useState(0);
     const [title, setTitle] = useState('Untitled Document');

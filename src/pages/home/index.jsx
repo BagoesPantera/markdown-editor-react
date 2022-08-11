@@ -11,7 +11,7 @@ import MarkdownOutput from "../../components/MarkdownOutput";
 
 import defaultInput from "../../const/defaultInput";
 
-export default function NewHome(){
+export default function Home(){
     const [code, setCode] = useState(defaultInput);
     const [wordCount, setWordCount] = useState(0);
     const [charCount, setCharCount] = useState(0);

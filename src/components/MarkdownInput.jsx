@@ -27,7 +27,7 @@ export default function MarkdownInput(){
                     
                 </div>
                 <div className="float-end w-50 my-auto">
-                    <button type="button" className="btn btn-outline-danger btn-rounded btn-sm float-end" data-mdb-ripple-color="dark" onClick={()=>{handleClear()}}><i class="bi bi-trash"></i> </button>
+                    <button type="button" className="btn btn-outline-danger btn-rounded btn-sm float-end" data-mdb-ripple-color="dark" onClick={()=>{handleClear()}}><i className="bi bi-trash"></i> </button>
                 </div>
                 
             </div>

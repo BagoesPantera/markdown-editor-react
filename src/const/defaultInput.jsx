@@ -27,7 +27,7 @@ func main() {
 * [ ] task list
 * [x] checked item
 
-https://example.com
+https://www.markdownguide.org/
 
 ## HTML in markdown
 <span>Hello <b>World !</b>:nerd_face:</span>

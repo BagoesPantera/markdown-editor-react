@@ -9,6 +9,7 @@ import remarkGemoji from 'remark-gemoji'
 
 // rehype
 import rehypeRaw from "rehype-raw";
+import rehypeSanitize, {defaultSchema} from "rehype-sanitize";
 
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {dracula} from 'react-syntax-highlighter/dist/esm/styles/prism'

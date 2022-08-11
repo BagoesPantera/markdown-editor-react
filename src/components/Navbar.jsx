@@ -21,8 +21,8 @@ export default function Navbar(){
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark font-monospace">
             <div className="container-fluid">
                 <a className="navbar-brand">MARDI</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarColor02">
                     <ul className="navbar-nav ms-auto">

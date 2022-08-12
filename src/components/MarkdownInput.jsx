@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import codeContext from "../codeContext";
+import Context from "../ContextProvider";
 
 import Editor from "react-simple-code-editor";
 import { highlight, languages } from 'prismjs';
@@ -7,7 +7,7 @@ import "prismjs/components/prism-markdown";
 import "prismjs/themes/prism.css";
 
 export default function MarkdownInput(){
-    const { code, setCode } = useContext(codeContext);
+    const { code, setCode } = useContext(Context);
 
     const hightlightWithLineNumbers = (input, language) =>
     highlight(input, language)

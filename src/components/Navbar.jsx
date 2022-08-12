@@ -1,10 +1,12 @@
 import { useContext } from "react";
-import codeContext from "../codeContext";
+import Context from "../ContextProvider";
+import { Link } from "react-router-dom";
+
 
 
 export default function Navbar(){
-    const { code } = useContext(codeContext);
-    const { title } = useContext(codeContext);
+    const { code } = useContext(Context);
+    const { title } = useContext(Context);
 
     const downloadMdFile = () => {
         const element = document.createElement("a");
@@ -29,7 +31,7 @@ export default function Navbar(){
                         <li className="nav-item dropdown me-4">
                             <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PREVIEW AS</a>
                             <div className="dropdown-menu dropdown-menu-end">
-                                <a className="dropdown-item">MARKDOWN</a>
+                                <Link to="/preview/markdown" className="dropdown-item" target="_blank">MARKDOWN</Link>
                             </div>
                         </li>
                         <li className="nav-item dropdown me-3">

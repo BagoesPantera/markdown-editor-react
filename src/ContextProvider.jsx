@@ -8,7 +8,7 @@ export function ContextProvider({ children }) {
     const [code, setCode] = useState(localStorage.getItem("markdown") || defaultInput);
     const [wordCount, setWordCount] = useState(0);
     const [charCount, setCharCount] = useState(0);
-    const [title, setTitle] = useState('Untitled Document');
+    const [title, setTitle] = useState(localStorage.getItem("title") || 'Untitled Document');
 
     const contextValue = {
         code,

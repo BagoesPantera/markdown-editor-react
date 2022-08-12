@@ -9,6 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css"
 
 import SplashScreen from './components/SplashScreen';
+import LoadingScreen from './components/LoadingScreen';
 
 import { ContextProvider } from './ContextProvider';
 
@@ -29,14 +30,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           />
 
         <Route path="/preview/markdown" element={
-            <React.Suspense fallback={<>...</>}> 
+            <React.Suspense fallback={LoadingScreen}> 
               <PreviewMarkdown />
             </React.Suspense> 
             } 
           />
 
         <Route path="/preview/html" element={
-            <React.Suspense fallback={<>...</>}> 
+            <React.Suspense fallback={LoadingScreen}> 
               <PreviewHTML />
             </React.Suspense> 
             } 

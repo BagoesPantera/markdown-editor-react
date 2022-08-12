@@ -1,13 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import Context from "../ContextProvider";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Navbar(){
-    const { code } = useContext(Context);
-    const { title } = useContext(Context);
+    const { code, title } = useContext(Context);
     const [same, setSame] = useState('nav-link');
-
-    const navigate = useNavigate();
 
     const downloadMdFile = () => {
         const element = document.createElement("a");
@@ -22,16 +19,17 @@ export default function Navbar(){
 
     const saveMarkdown = () => {
         localStorage.setItem("markdown", code);
+        localStorage.setItem("title", title);
         setSame('nav-link disabled');
     }
 
     useEffect(() => {
-      if(localStorage.getItem("markdown") === code){
+      if(localStorage.getItem("markdown") === code && localStorage.getItem("title") === title){
         setSame('nav-link disabled');
       }else{
         setSame('nav-link');
       }
-    }, [code])
+    }, [code, title])
     
 
     return(
@@ -49,8 +47,8 @@ export default function Navbar(){
                         <li className="nav-item dropdown me-4">
                             <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PREVIEW AS</a>
                             <div className="dropdown-menu dropdown-menu-end">
-                                <a  className="dropdown-item" target="_blank" onClick={()=>{navigate('/preview/markdown')}}>MARKDOWN</a>
-                                <a  className="dropdown-item" target="_blank" onClick={()=>{navigate('/preview/html')}}>HTML</a>
+                                <Link className="dropdown-item" to="/preview/markdown" target="_blank" onClick={()=> {saveMarkdown()}}>MARKDOWN</Link>
+                                <Link className="dropdown-item" to="/preview/html" target="_blank" onClick={()=> {saveMarkdown()}}>HTML</Link>
                             </div>
                         </li>
                         <li className="nav-item dropdown me-3">

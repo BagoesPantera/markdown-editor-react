@@ -9,7 +9,7 @@ import "prismjs/themes/prism.css";
 import defaultInput from "../const/defaultInput";
 
 export default function MarkdownInput(){
-    const { code, setCode } = useContext(Context);
+    const { code, setCode, setTitle } = useContext(Context);
 
     const hightlightWithLineNumbers = (input, language) =>
     highlight(input, language)
@@ -23,7 +23,9 @@ export default function MarkdownInput(){
 
     const handleReset = () => {
         localStorage.removeItem("markdown");
+        localStorage.removeItem("title");
         setCode(defaultInput);
+        setTitle("Untitled Document");
     }
     
     return(
@@ -34,7 +36,7 @@ export default function MarkdownInput(){
                 </div>
                 <div className="float-end w-50 my-auto">
                     <button type="button" className="btn btn-outline-danger btn-rounded btn-sm float-end" data-mdb-ripple-color="dark" onClick={()=>{handleClear()}} data-bs-toggle="tooltip" title="Clear markdown"><i className="bi bi-trash"></i> </button>
-                    <button type="button" className="btn btn-outline-primary btn-rounded btn-sm float-end me-3" data-mdb-ripple-color="dark" onClick={()=>{handleReset()}} data-bs-toggle="tooltip" title="Reset markdown"><i class="bi bi-arrow-counterclockwise"></i> </button>
+                    <button type="button" className="btn btn-outline-primary btn-rounded btn-sm float-end me-3" data-mdb-ripple-color="dark" onClick={()=>{handleReset()}} data-bs-toggle="tooltip" title="Reset markdown"><i className="bi bi-arrow-counterclockwise"></i> </button>
                 </div>
             </div>
             

@@ -6,6 +6,8 @@ import { highlight, languages } from 'prismjs';
 import "prismjs/components/prism-markdown";
 import "prismjs/themes/prism.css";
 
+import defaultInput from "../const/defaultInput";
+
 export default function MarkdownInput(){
     const { code, setCode } = useContext(Context);
 
@@ -18,18 +20,22 @@ export default function MarkdownInput(){
     const handleClear = () => {
         setCode("");
     }
+
+    const handleReset = () => {
+        localStorage.removeItem("markdown");
+        setCode(defaultInput);
+    }
     
     return(
         <div className="w-50 border-end text-break pe-2">
             <div className="d-flex w-100 m-0">
                 <div className="w-50">
                     <p className="mt-3 text-muted text-small font-monospace fw-bold">MARKDOWN</p>
-                    
                 </div>
                 <div className="float-end w-50 my-auto">
-                    <button type="button" className="btn btn-outline-danger btn-rounded btn-sm float-end" data-mdb-ripple-color="dark" onClick={()=>{handleClear()}}><i className="bi bi-trash"></i> </button>
+                    <button type="button" className="btn btn-outline-danger btn-rounded btn-sm float-end" data-mdb-ripple-color="dark" onClick={()=>{handleClear()}} data-bs-toggle="tooltip" title="Clear markdown"><i className="bi bi-trash"></i> </button>
+                    <button type="button" className="btn btn-outline-primary btn-rounded btn-sm float-end me-3" data-mdb-ripple-color="dark" onClick={()=>{handleReset()}} data-bs-toggle="tooltip" title="Reset markdown"><i class="bi bi-arrow-counterclockwise"></i> </button>
                 </div>
-                
             </div>
             
             <hr className="my-0"/>

@@ -1,8 +1,6 @@
 import { useContext, useEffect } from "react";
 
 import Context from "../../../ContextProvider";
-import ReactMarkdownComponent from "../../../components/ReactMarkdownComponent";
-
 
 export default function PreviewMarkdown() {
     const { code } = useContext(Context);

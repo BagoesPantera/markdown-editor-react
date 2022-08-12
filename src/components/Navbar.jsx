@@ -3,8 +3,8 @@ import Context from "../ContextProvider";
 import { Link } from "react-router-dom";
 
 export default function Navbar(){
-    const { code, title } = useContext(Context);
-    const [same, setSame] = useState('nav-link');
+    const { code, title, showPreview, setShowPreview } = useContext(Context);
+    const [same, setSame] = useState(false);
 
     const downloadMdFile = () => {
         const element = document.createElement("a");
@@ -20,29 +20,39 @@ export default function Navbar(){
     const saveMarkdown = () => {
         localStorage.setItem("markdown", code);
         localStorage.setItem("title", title);
-        setSame('nav-link disabled');
+        setSame(true);
     }
 
     useEffect(() => {
       if(localStorage.getItem("markdown") === code && localStorage.getItem("title") === title){
-        setSame('nav-link disabled');
+        setSame(true);
       }else{
-        setSame('nav-link');
+        setSame(false);
       }
     }, [code, title])
     
 
     return(
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark font-monospace">
+        <nav className="navbar navbar-expand-md navbar-dark bg-dark font-monospace">
             <div className="container-fluid">
                 <a className="navbar-brand">MARDI</a>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+
+                <ul className="navbar-nav ms-auto d-flex">
+                    <li className="nav-item me-4 d-md-none">
+                        <a className="nav-link" aria-current="page" onClick={()=>{setShowPreview(!showPreview)}}>
+                            <i className={`bi ${showPreview ? "bi-eye-slash-fill" : "bi-eye-fill"} `}></i>
+                        </a>
+                    </li>
+                   
+                </ul>
+
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="navbar-collapse collapse w-100 order-3 dual-collapse2" id="navbarColor02">
                     <ul className="navbar-nav ms-auto">
                         <li className="nav-item me-4">
-                            <a className={same} aria-current="page" onClick={()=> {saveMarkdown()}}>SAVE</a>
+                            <a className={`nav-link ${same ? "disabled" : ""}`} aria-current="page" onClick={()=> {saveMarkdown()}}>SAVE</a>
                         </li>
                         <li className="nav-item dropdown me-4">
                             <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PREVIEW AS</a>

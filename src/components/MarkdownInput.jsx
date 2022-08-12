@@ -9,7 +9,7 @@ import "prismjs/themes/prism.css";
 import defaultInput from "../const/defaultInput";
 
 export default function MarkdownInput(){
-    const { code, setCode, setTitle } = useContext(Context);
+    const { code, setCode, setTitle, showPreview } = useContext(Context);
 
     const hightlightWithLineNumbers = (input, language) =>
     highlight(input, language)
@@ -29,7 +29,7 @@ export default function MarkdownInput(){
     }
     
     return(
-        <div className="w-50 border-end text-break pe-2">
+        <div className={`border-end text-break pe-2 w-100 w-md-50 ${showPreview ? "d-none" : "d-inline" } `}>
             <div className="d-flex w-100 m-0">
                 <div className="w-50">
                     <p className="mt-3 text-muted text-small font-monospace fw-bold">MARKDOWN</p>

@@ -9,6 +9,7 @@ export function ContextProvider({ children }) {
     const [wordCount, setWordCount] = useState(0);
     const [charCount, setCharCount] = useState(0);
     const [title, setTitle] = useState(localStorage.getItem("title") || 'Untitled Document');
+    const [showPreview, setShowPreview] = useState(false);
 
     const contextValue = {
         code,
@@ -18,7 +19,9 @@ export function ContextProvider({ children }) {
         charCount,
         setCharCount,
         title,
-        setTitle
+        setTitle,
+        showPreview,
+        setShowPreview
     };
 
     return <Context.Provider value={contextValue}>{children}</Context.Provider>

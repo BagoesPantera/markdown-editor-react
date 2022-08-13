@@ -1,6 +1,10 @@
 # Markdown Editor
 
-This markdown editor made with React and Vite
+This markdown editor made with React and Vite.
+
+## Github Page
+
+https://bagoespantera.github.io/markdown-editor-react/
 
 ## Customize configuration
 

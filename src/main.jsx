@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom/client'
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import './index.css'
 
-// bootstrap
-import "jquery";
-import "bootstrap";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 

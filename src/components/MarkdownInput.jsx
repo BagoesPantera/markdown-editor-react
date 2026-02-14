@@ -41,7 +41,7 @@ export default function MarkdownInput(){
             </div>
             
             <hr className="my-0"/>
-            <div className="w-100 overflow-auto " style={{height:"91%"}}>
+            <div id="editor-scroll" className="w-100 overflow-auto " style={{height:"91%"}}>
                 <Editor
                     value={code}
                     onValueChange={code => setCode(code)}

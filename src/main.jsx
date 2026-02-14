@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {HashRouter, Routes, Route} from "react-router-dom";
 import './index.css'
 
 import "bootstrap/dist/js/bootstrap.bundle.min";
@@ -18,7 +18,7 @@ const PreviewHTML = React.lazy(() => import('./pages/preview/html'));
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename='/markdown-editor-react/'>
+    <HashRouter>
       <ContextProvider>
         <Routes>
           <Route path="/" element={
@@ -43,6 +43,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           />
         </Routes>
       </ContextProvider>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 )
